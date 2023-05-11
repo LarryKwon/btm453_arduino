@@ -42,6 +42,8 @@
 // }
 
 
+
+
 int val;
 int brightness;
 
@@ -54,6 +56,8 @@ void setup() {
   pinMode(pin_led_red, OUTPUT);
   pinMode(pin_led_green, OUTPUT);
   pinMode(pin_led_yellow, OUTPUT);
+
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -64,4 +68,7 @@ void loop() {
   analogWrite(pin_led_yellow, brightness);
   analogWrite(pin_led_green, brightness);
 
+  Serial.print(val);
+  Serial.print("    ");
+  Serial.println(brightness);
 }
