@@ -1,23 +1,18 @@
-int pin_buzzer = 2;
+#include <Servo.h>
 
-int Tones[7] = {262, 294, 330, 349, 392, 440, 494};
-int Tones_Num;
+Servo servo;
 
-void setup() {
-  // put your setup code here, to run once:
-  pinMode(pin_buzzer, OUTPUT);
+const byte servo_signal = 4;
+
+void setup(){
+  servo.attach(servo_signal);
+
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop(){
 
-  for(Tones_Num = 0; Tones_Num < 7; Tones_Num++){
-    // output sound
-    tone(pin_buzzer,Tones[Tones_Num]);
-    delay(500);
-
-    // stop sound
-    noTone(pin_buzzer);
-    delay(500);    
-  }
+  servo.write(180);
+  delay(1000);
+  servo.write(0);
+  delay(1000);
 }
